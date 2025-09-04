@@ -1,0 +1,34 @@
+:root{
+  --bg:#fff; --text:#111; --muted:#6b7280; --card:#f5f5f7; --primary:#0ea5e9; --sep:#e5e7eb;
+}
+*{box-sizing:border-box}
+body{margin:0; font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif; background:var(--bg); color:var(--text)}
+.app-header{position:sticky; top:0; z-index:10; background:var(--bg); border-bottom:1px solid var(--sep); padding:.8rem 1rem; display:flex; align-items:center; gap:.75rem;}
+.logo{font-weight:700; font-size:1.05rem}
+.badge{margin-left:auto; font-size:.85rem; padding:.25rem .5rem; border-radius:999px; background:var(--card); color:var(--muted); border:1px solid var(--sep);}
+.categories{display:flex; gap:.5rem; overflow:auto; padding:.75rem 1rem .5rem; border-bottom:1px solid var(--sep);}
+.chip{flex:0 0 auto; padding:.4rem .7rem; border-radius:999px; border:1px solid var(--sep); background:var(--bg); color:var(--text); font-size:.9rem; cursor:pointer}
+.chip.active{background:var(--text); color:var(--bg); border-color:var(--text)}
+.app-main{padding:.75rem 1rem 6rem}
+.grid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:.75rem}
+.card{border:1px solid var(--sep); border-radius:14px; overflow:hidden; background:var(--bg); display:flex; flex-direction:column}
+.img{background:var(--card); aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; font-size:2rem}
+.body{padding:.6rem .7rem .7rem; display:flex; flex-direction:column; gap:.35rem}
+.title{font-weight:600; line-height:1.2}
+.meta{color:var(--muted); font-size:.87rem}
+.row{display:flex; align-items:center; gap:.5rem; justify-content:space-between; margin-top:.2rem}
+.price{font-weight:700}
+.btn{border:1px solid var(--sep); background:var(--bg); border-radius:10px; padding:.4rem .6rem; cursor:pointer}
+.btn:active{transform:translateY(1px)}
+.sheet{position:fixed; inset:auto 0 0 0; background:var(--bg); border-top-left-radius:16px; border-top-right-radius:16px; box-shadow:0 -8px 30px rgba(0,0,0,.08); transform:translateY(100%); transition:transform .25s ease; max-height:80vh; display:flex; flex-direction:column}
+.sheet.open{transform:translateY(0)}
+.sheet-h{padding:.9rem 1rem; border-bottom:1px solid var(--sep); display:flex; align-items:center; gap:.5rem}
+.sheet-h .title{font-weight:700; font-size:1rem}
+.sheet-b{padding:.4rem 1rem 1rem; overflow:auto; flex:1}
+.item{display:grid; grid-template-columns:1fr auto; gap:.4rem; padding:.7rem 0; border-bottom:1px solid var(--sep)}
+.item .name{font-weight:600}
+.qty{display:flex; gap:.35rem; align-items:center}
+.qty button{width:28px; height:28px; border-radius:8px; border:1px solid var(--sep); background:var(--bg); cursor:pointer}
+.muted{color:var(--muted)}
+.totals{padding:.8rem 1rem 1rem; border-top:1px solid var(--sep)}
+.totals .line{display:flex; justify-content:space-between; margin:.25rem 0}
