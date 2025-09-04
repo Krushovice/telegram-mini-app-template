@@ -6,7 +6,6 @@ app = create_app()
 if __name__ == "__main__":
     import uvicorn
 
-    # Запускаем сервер. Telegram будет стучаться на /tg/webhook/<секрет>
     uvicorn.run(
         "main:app",
         host=settings.uvicorn.host,
