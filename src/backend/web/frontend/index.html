@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo Shop</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: sans-serif; margin: 0; padding: 1rem; }
+    h1 { margin-bottom: 1rem; }
+    .product { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; }
+  </style>
+</head>
+<body>
+  <h1>👋 Добро пожаловать в магазин!</h1>
+  <div class="product">
+    <strong>Тестовый товар</strong><br/>
+    <span>Цена: 100₽</span><br/>
+    <button onclick="addToCart()">В корзину</button>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+
+    function addToCart() {
+      tg.sendData(JSON.stringify({ type: "add_to_cart", product_id: 1, qty: 1 }));
+      tg.close();
+    }
+  </script>
+</body>
+</html>
