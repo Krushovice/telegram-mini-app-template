@@ -19,15 +19,27 @@
     <button onclick="addToCart()">В корзину</button>
   </div>
 
-  <script>
-    const tg = window.Telegram.WebApp;
-    tg.ready();
-    tg.expand();
+<script>
+  const tg = window.Telegram.WebApp;
+  tg.ready(); tg.expand();
 
-    function addToCart() {
-      tg.sendData(JSON.stringify({ type: "add_to_cart", product_id: 1, qty: 1 }));
-      tg.close();
-    }
-  </script>
+  async function whoAmI() {
+    const initData = tg.initData || ""; // подписанная строка от Telegram
+    const res = await fetch("/api/me", {
+      method: "GET",
+      headers: { "X-Telegram-Init-Data": initData },
+      credentials: "omit",
+    });
+    const data = await res.json();
+    console.log("me:", data);
+  }
+  whoAmI();
+
+  function addToCart() {
+    tg.sendData(JSON.stringify({ type: "add_to_cart", product_id: 1, qty: 1 }));
+    tg.close();
+  }
+</script>
+
 </body>
 </html>
