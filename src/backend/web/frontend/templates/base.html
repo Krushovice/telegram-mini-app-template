@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}CoffeeToGo{% endblock %}</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="/static/css/base.css"/>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="app-header">
+    <div class="logo">☕️ CoffeeToGo</div>
+    <div id="cartBadge" class="badge">0</div>
+  </header>
+
+  <nav id="categories" class="categories"></nav>
+
+  <main class="app-main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-label="Корзина">
+    <div class="sheet-h">
+      <div class="title">Корзина</div>
+      <div class="muted" id="sheetCount"></div>
+      <div style="margin-left:auto"><button class="btn" onclick="window.Coffee.closeSheet()">Закрыть</button></div>
+    </div>
+    <div id="sheetBody" class="sheet-b"></div>
+    <div class="totals">
+      <div class="line"><span>Сумма</span><strong id="sum">0 ₽</strong></div>
+      <div class="line muted"><span>Итого</span><strong id="total">0 ₽</strong></div>
+    </div>
+  </div>
+
+  {% block scripts %}
+  <script type="module" src="/static/js/app.js"></script>
+  {% endblock %}
+</body>
+</html>
