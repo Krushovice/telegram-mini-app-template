@@ -1,4 +1,4 @@
-from backend.create_app import create_app
+from backend.web.factory import create_app
 from core.config import settings
 
 app = create_app()

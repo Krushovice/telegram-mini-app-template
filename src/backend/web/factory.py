@@ -6,8 +6,9 @@ from starlette.middleware.cors import CORSMiddleware
 
 from core.config import settings
 
-from backend.lifespan import make_lifespan
-from .routes import make_webhook_router
+from backend.web.lifespan import make_lifespan
+from backend.web.routers.webhook import make_webhook_router
+from backend.web.routers.front import router as front_router
 
 
 def create_app() -> FastAPI:
@@ -42,6 +43,7 @@ def create_app() -> FastAPI:
     )
 
     # 4) Роутер, который знает только о dp/bot и пути
+    app.include_router(front_router)
     app.include_router(
         make_webhook_router(
             dp=dp,
