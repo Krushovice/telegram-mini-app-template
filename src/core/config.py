@@ -27,6 +27,10 @@ class WebConfig(BaseModel):
 
 class DatabaseConfig(BaseModel):
     url: PostgresDsn
+    echo: bool
+    echo_pool: bool
+    echo_pool_size: int
+    echo_max_overflow: int
 
 
 class Settings(BaseSettings):
@@ -41,7 +45,7 @@ class Settings(BaseSettings):
     bot: BotConfig
     web: WebConfig
     uvicorn: UvicornConfig
-    # db: DatabaseConfig
+    db: DatabaseConfig
 
 
 settings = Settings()
